@@ -1,7 +1,7 @@
 {
-  "name": "module",
-  "title": "New Module",
-  "description": "",
+  "name": "afk",
+  "title": "💤 Away From Keyboard",
+  "description": "Shows an AFK indicator when /afk is invoked",
   "version": "This is auto replaced",
   "library": "false",
   "manifestPlusVersion": "1.0.0",
@@ -9,25 +9,16 @@
   "compatibleCoreVersion": "0.7.9",
   "authors": [
     {
-      "name": "The League of Extraordinary FVTT Developers",
-      "url": "https://github.com/League-of-Foundry-Developers",
-      "discord": "discordID#0001"
+      "name": "Cody Swendrowski",
+      "url": "https://swendrowski.us",
+      "email": "cody@swendrowski.us",
+      "discord": "cswendrowski#9701",
+      "patreon": "ironmoose"
     }
   ],
-  "dependencies": [
-
-  ],
-  "conflicts": [
-    
-  ],
+  "socket": true,
   "esmodules": [
-    "/scripts/module.js"
-  ],
-  "scripts": [
-    "/scripts/lib/lib.js"
-  ],
-  "styles": [
-    "/styles/module.css"
+    "/scripts/afk.js"
   ],
   "languages": [
     {
@@ -36,7 +27,7 @@
       "path": "languages/en.json"
     }
   ],
-  "url": "https://github.com/<USER>/FoundryVTT-module",
+  "url": "https://github.com/cswendrowski/FoundryVTT-module",
   "manifest": "This is auto replaced",
   "download": "This is auto replaced",
   "media": [
