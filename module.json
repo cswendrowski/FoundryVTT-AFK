@@ -32,8 +32,8 @@
   "download": "This is auto replaced",
   "media": [
     {
-      "type": "icon",
-      "url": "https://avatars2.githubusercontent.com/u/71292812?s=400&u=ccdb4eeb7abf551ca8f314e5a9bfd0479a4d3d41&v=4"
+      "type": "cover",
+      "url": "https://raw.githubusercontent.com/cswendrowski/FoundryVTT-AFK/master/awayfromkeyboard_cover.png?token=ADXKKINU3RAYLCC3MWQNE4TABIX6K"
     }
   ]
 }
