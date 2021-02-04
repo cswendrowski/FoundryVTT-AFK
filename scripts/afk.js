@@ -4,19 +4,38 @@ Hooks.on("chatCommandsReady", function(chatCommands) {
     game.socket.on("module.afk", function(recieveMsg) {
       window.game.afkHandler.handleSocket(recieveMsg);
     });
-  
-    chatCommands.registerCommand(chatCommands.createCommand("/afk", false, (chatlog, messageText, chatdata) => {
-      window.game.afkHandler.afk();
+
+    chatCommands.registerCommand(chatCommands.createCommandFromData({
+      commandKey: "/afk",
+      invokeOnCommand: (chatlog, messageText, chatdata) => {
+        window.game.afkHandler.afk();
+      },
+      shouldDisplayToChat: false,
+      iconClass: "fa-comment-slash",
+      description: "Show AFK indicator"
     }));
 
-    chatCommands.registerCommand(chatCommands.createCommand("brb", true, (chatlog, messageText, chatdata) => {
-      if (window.game.afkHandler.afk()) {
-        return "brb";
-      }
-    }, 1));
-  
-    chatCommands.registerCommand(chatCommands.createCommand("/back", false, (chatlog, messageText, chatdata) => {
-      window.game.afkHandler.back();
+    chatCommands.registerCommand(chatCommands.createCommandFromData({
+      commandKey: "brb",
+      invokeOnCommand: (chatlog, messageText, chatdata) => {
+        if (window.game.afkHandler.afk()) {
+          return "brb";
+        }
+      },
+      shouldDisplayToChat: false,
+      iconClass: "fa-comment-slash",
+      description: "Show AFK indicator",
+      createdMessageType: 1
+    }));
+
+    chatCommands.registerCommand(chatCommands.createCommandFromData({
+      commandKey: "/back",
+      invokeOnCommand: (chatlog, messageText, chatdata) => {
+        window.game.afkHandler.back();
+      },
+      shouldDisplayToChat: false,
+      iconClass: "fa-comment-slash",
+      description: "Remove AFK indicator"
     }));
 });
 
@@ -57,4 +76,15 @@ Hooks.once('ready', function() {
         type: Boolean,
         default: true
     });
+});
+
+Hooks.on("getSceneControlButtons", function(controls) {
+  let tileControls = controls.find(x => x.name === "token");
+  tileControls.tools.push({
+    icon: "fas fa-comment-slash",
+    name: "afk",
+    title: "💤AFK",
+    button: true,
+    onClick: () => window.game.afkHandler.toggle()
+  });
 });
